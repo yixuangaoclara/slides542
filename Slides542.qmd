@@ -7,30 +7,6 @@ format:
         theme: simple
 ---
 
-## Project Background
-
----
-
-## Dataset Overview
-
----
-
-## Data Retrieval
-
----
-
-## Exploratory Data Analysis
-
----
-
-## Analysis - Preprocessing and Model Selection
-
----
-
-## Analysis - Hyperparameter Tuning
-
----
-
 ## Analysis - Model Evaluation
 
 
@@ -90,3 +66,8 @@ To wrap up just some summary points:
 Thank you! This has been our presentation on our Wine Quality Predictor. 
 
 We will now open the floor for any questions!
+
+::: {.pull-up}
+![](img/thinking.jpg){width=700 fig-align="center"}
+:::
+
