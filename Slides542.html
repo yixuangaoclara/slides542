@@ -8,7 +8,7 @@
 <link href="Slides542_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="Slides542_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Slides542_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh">
   <title>Predicting Red Wine Quality Using Machine Learning</title>
@@ -337,17 +337,74 @@ Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh
 </div>
 
 </section>
-<section id="project-background" class="slide level2">
-<h2>Project Background</h2>
+<section id="data-validation" class="slide level2">
+<h2>Data Validation</h2>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<!-- Left Column (Text) -->
+<div style="flex: 1; text-align: left; font-size: 24px;">
+<ul>
+<li>Column Data Types: All columns conform to the expected data types.​<br>
+<ul>
+<li>All columns in the wine dataset is numeric​<br></li>
+<li>Standard Scaler is applied so that all data has a mean of 0 and standard deviation of 1​<br></li>
+</ul></li>
+<li>Value Ranges: All columns conform to the specified range.​<br></li>
+<li>Duplicate Rows: No duplicate rows were found.​<br></li>
+<li>Empty Rows: No null values or rows with all null values were found.​<br> <br> The dataset passed all validation checks successfully. Train Test Split is applied so that we have a 80% training set 20% testing set.</li>
+</ul>
+</div>
+<!-- Right Column (Image) -->
+<div style="flex: 1; text-align: right;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/Data_validation.png" class="quarto-figure quarto-figure-right" width="550"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="dataset-overview" class="slide level2">
-<h2>Dataset Overview</h2>
+<section id="exploratory-data-analysis---target-distribution-chart" class="slide level2">
+<h2>Exploratory Data Analysis - Target Distribution Chart</h2>
+
+<img data-src="img/Target_distribution.png" class="quarto-figure quarto-figure-center r-stretch" width="500"><div style="flex: 1;font-size: 24px;">
+<h1 style="font-weight: bold;font-size: 24px;">
+Notable Observations:
+</h1>
+<ul>
+<li>Target column follows a bell shaped distribution.<br></li>
+<li>Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8.</li>
+</ul>
+</div>
 </section>
-<section id="data-retrieval" class="slide level2">
-<h2>Data Retrieval</h2>
+<section id="exploratory-data-analysis---feature-correlation-heatmap" class="slide level2">
+<h2>Exploratory Data Analysis - Feature Correlation Heatmap</h2>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<!-- Left Column (Text) -->
+<div style="flex: 1;font-size: 30px; text-align: left;">
+<p>This heatmap highlights in our training data which features are correlated:<br> <br> - Fixed acidity and citric acid levels are features which show a high level of correlation with one another<br> - Density and fixed acidity are correlated.<br> - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br></p>
+</div>
+<!-- Right Column (Image) -->
+<div style="flex: 1; text-align: right;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/features_heatmap.png" class="quarto-figure quarto-figure-right" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="exploratory-data-analysis" class="slide level2">
-<h2>Exploratory Data Analysis</h2>
+<section id="exploratory-data-analysis---feature-distribution" class="slide level2">
+<h2>Exploratory Data Analysis - Feature Distribution</h2>
+
+<img data-src="img/facet_feature_distributions.png" class="quarto-figure quarto-figure-center r-stretch" width="600"><div style="flex: 1;font-size: 24px;">
+<h1 style="font-weight: bold;font-size: 24px;">
+Feature Distributions:
+</h1>
+<ul>
+<li>Several of the features are normally distributed however not all are. <br></li>
+<li>Several features have multiple modes or show skewness on the right.<br></li>
+</ul>
+</div>
 </section>
 <section id="analysis---preprocessing-and-model-selection" class="slide level2">
 <h2>Analysis - Preprocessing and Model Selection</h2>

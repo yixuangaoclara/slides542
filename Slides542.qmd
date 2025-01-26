@@ -6,22 +6,65 @@ format:
     revealjs:
         theme: simple
 ---
+## Data Validation
 
-## Project Background
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<!-- Left Column (Text) -->
+<div style="flex: 1; text-align: left; font-size: 24px;">
+- Column Data Types: All columns conform to the expected data types.​<br>
+  - All columns in the wine dataset is numeric​<br>
+  - Standard Scaler is applied so that all data has a mean of 0 and standard deviation of 1​<br>
+- Value Ranges: All columns conform to the specified range.​<br>
+- Duplicate Rows: No duplicate rows were found.​<br>
+- Empty Rows: No null values or rows with all null values were found.​<br>
+<br>
+The dataset passed all validation checks successfully. Train Test Split is applied so that we have a 80% training set 20% testing set.
+</div>
 
----
+<!-- Right Column (Image) -->
+<div style="flex: 1; text-align: right;">
+![](img/Data_validation.png){width=550 fig-align="right"}
+</div>
+</div>
 
-## Dataset Overview
+## Exploratory Data Analysis - Target Distribution Chart
 
----
+![](img/Target_distribution.png){width=500 fig-align="center"}
 
-## Data Retrieval
+<div style="flex: 1;font-size: 24px;">
+<h1 style="font-weight: bold;font-size: 24px;">Notable Observations:</h1>
+  - Target column follows a bell shaped distribution.<br>
+  - Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8. 
+</div>
 
----
+## Exploratory Data Analysis - Feature Correlation Heatmap
 
-## Exploratory Data Analysis
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<!-- Left Column (Text) -->
+<div style="flex: 1;font-size: 30px; text-align: left;">
+This heatmap highlights in our training data which features are correlated:<br>
+<br>
+ - Fixed acidity and citric acid levels are features which show a high level of correlation with one another<br>
+ - Density and fixed acidity are correlated.<br>
+ - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br> 
+</div>
 
----
+<!-- Right Column (Image) -->
+<div style="flex: 1; text-align: right;">
+![](img/features_heatmap.png){width=500 fig-align="right"}
+</div>
+</div>
+
+## Exploratory Data Analysis - Feature Distribution
+
+![](img/facet_feature_distributions.png){width=600 fig-align="center"}
+
+<div style="flex: 1;font-size: 24px;">
+<h1 style="font-weight: bold;font-size: 24px;">Feature Distributions:</h1>
+  - Several of the features are normally distributed however not all are. <br>
+  - Several features have multiple modes or show skewness on the right.<br>
+</div>
+
 
 ## Analysis - Preprocessing and Model Selection
 
@@ -76,6 +119,7 @@ format:
 ## Conclusion
 
 To wrap up just some summary points:
+
 
 - We made a classifier that gives a rating of red wine based on chemical properties.
 - The data was obtained from the UC Irvine Machine Learning Repository.
