@@ -9,84 +9,41 @@ format:
 
 ## Project Background
 
+### **Motivation**
+- The global wine industry is valued at $109.5 billion USD.
+- Differentiating wine quality often depends on subjective evaluations by sommeliers.
+
+### **Goal**
+- Bridge the gap between subjective judgment and objective, data-driven assessment.  
+- Leverage machine learning to classify red wine quality based on chemical properties.
+
+
 ---
 
 ## Dataset Overview
+
+### **Source**
+- Red Wine Quality Dataset from the UC Irvine Machine Learning Repository.
+
+### **Details**
+- **Observations:** 1,599 rows.
+- **Features:** 11 chemical properties, e.g., acidity, alcohol, residual sugar.  
+- **Target:** Quality score ranging from 0 (low) to 10 (high).
+
+### **Key Insight**
+- Quality scores are subjective and provided by three wine specialists, introducing potential variability in judgment.
+
 
 ---
 
 ## Data Retrieval
 
----
+### **Data Cleaning**
+- **Missing Values:** Verified none using `isnull()` and `info()` in Python.  
+- **Duplicate Rows:** Detected and removed 240 duplicates.
 
-## Exploratory Data Analysis
-
----
-
-## Analysis - Preprocessing and Model Selection
-
----
-
-## Analysis - Hyperparameter Tuning
+### **Final Dataset**
+- **Rows Reduced:** From 1,599 to 1,359 after cleaning.  
+- Ensured a reliable and representative dataset for analysis.
 
 ---
-
-## Analysis - Model Evaluation
-
-
-- On the testing data, we attained an **accuracy of ~58%**
-- To investigate further we took a look at the confusion matries for each target level.
-
-::: {.pull-up}
-![Confusion Matrix for Red Wine Quality of 6](img/confusion_matrix_class_6.png){width=700 fig-align="center"}
-:::
-
-## Analysis - Model Evaluation
-
-- We can see the how many wine samples were correctly (True Positives and False Positives) and incorrectly identified (False Positives and False Negatives) for each wine level
-
-| Confusion Matrix | Correct | Incorrect |
-|------------------|:--------|----------:|
-| 3                | 0       |         0 |
-| 4                | 0       |         0 |
-| 5                | 75      |        60 |
-| 6                | 76      |        51 |
-| 7                | 5       |         5 |
-| 8                | 0       |         0 |
-
-
-- Overall, the model correctly classified $156$ red wine samples, but incorrectly classified $116$ red wine samples.
-
-# Limitations
-
-## Limitations on the Dataset
-- There are not many imbalanced classes, and we have no data for extremely good or bad wines. A dataset with adequate data for all classes may yield a better model for generalization.
-- Another dataset with features talking about the scent and taste of the wine would allow 
-
-## Limitations on the Model
-- The best model achieved **around ~58%**, indicating room for improvement.
-- The targts are ordinal, so a model that takes this into account can be useful.
-- Perhaps we can consider a Neural Net using Cross-Entropy Loss for Multiclass Classification.
-
-## Limitations on the Metric
-- Only accuracy was used, which does not take into account the True and false positives and true and false negatives.
-- Perhaps a metric like F1 / F2 score would better represent the model.
-
-
-## Conclusion
-
-To wrap up just some summary points:
-
-- We made a classifier that gives a rating of red wine based on chemical properties.
-- The data was obtained from the UC Irvine Machine Learning Repository.
-- This classifier uses a SVM RBF model, with tuned C, gamma and decision_function_shape parameters.
-- Final model gave a score of **58% accuracy**. This indicates room for improvement via different data and different modeling techniques.
-- While not the best model, it can still be used as a preliminary screening tool to assess wine batches before further testing, or by novel wine enthusiasts to assess their wine quality.
-
-
-
-# Questions?
-
-Thank you! This has been our presentation on our Wine Quality Predictor. 
-
-We will now open the floor for any questions!
