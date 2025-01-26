@@ -21,14 +21,36 @@ format:
 
 ## Exploratory Data Analysis
 
----
+# Analysis - Preprocessing and Model Selection
 
-## Analysis - Preprocessing and Model Selection
+## Preprocessing
+- **Objective:** Prepare data for effective model performance.
+- **StandardScaler:**
+  - Standardized all numeric features to have zero mean and unit variance.
+  - Ensured equal contribution of features to the model.
 
+## Model Selection
+
+- **Evaluation Metrics:**
+  - Accuracy (5-fold cross-validation)
+  - Training and validation scores
+- **Best Model:**
+  - **SVM (RBF kernel)** achieved the highest validation accuracy of 60.3%.
+![Fit time, score time, training score and validation scores for different models.](img/model_chart.png)
 ---
 
 ## Analysis - Hyperparameter Tuning
+**Method**  
+- RandomizedSearchCV
 
+**Tuned Parameters**  
+- `C` (Regularization strength)  
+- `gamma` (Kernel coefficient)
+
+**Best Configuration**  
+- `C`: 23.66  
+- `gamma`: 0.00278  
+- Validation accuracy: ~58.0%
 ---
 
 ## Analysis - Model Evaluation

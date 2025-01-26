@@ -349,11 +349,47 @@ Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh
 <section id="exploratory-data-analysis" class="slide level2">
 <h2>Exploratory Data Analysis</h2>
 </section>
-<section id="analysis---preprocessing-and-model-selection" class="slide level2">
-<h2>Analysis - Preprocessing and Model Selection</h2>
+<section>
+<section id="analysis---preprocessing-and-model-selection" class="title-slide slide level1 center">
+<h1>Analysis - Preprocessing and Model Selection</h1>
+
+</section>
+<section id="preprocessing" class="slide level2">
+<h2>Preprocessing</h2>
+<ul>
+<li><strong>Objective:</strong> Prepare data for effective model performance.</li>
+<li><strong>StandardScaler:</strong>
+<ul>
+<li>Standardized all numeric features to have zero mean and unit variance.</li>
+<li>Ensured equal contribution of features to the model.</li>
+</ul></li>
+</ul>
+</section>
+<section id="model-selection" class="slide level2">
+<h2>Model Selection</h2>
+<ul>
+<li><strong>Evaluation Metrics:</strong>
+<ul>
+<li>Accuracy (5-fold cross-validation)</li>
+<li>Training and validation scores</li>
+</ul></li>
+<li><strong>Best Model:</strong>
+<ul>
+<li><strong>SVM (RBF kernel)</strong> achieved the highest validation accuracy of 60.3%. <img data-src="img/model_chart.png" alt="Fit time, score time, training score and validation scores for different models."></li>
+</ul></li>
+</ul>
 </section>
 <section id="analysis---hyperparameter-tuning" class="slide level2">
 <h2>Analysis - Hyperparameter Tuning</h2>
+<p><strong>Method</strong><br>
+- RandomizedSearchCV</p>
+<p><strong>Tuned Parameters</strong><br>
+- <code>C</code> (Regularization strength)<br>
+- <code>gamma</code> (Kernel coefficient)</p>
+<p><strong>Best Configuration</strong><br>
+- <code>C</code>: 23.66<br>
+- <code>gamma</code>: 0.00278<br>
+- Validation accuracy: ~58.0%</p>
 </section>
 <section id="analysis---model-evaluation" class="slide level2">
 <h2>Analysis - Model Evaluation</h2>
@@ -419,7 +455,7 @@ Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh
 <ul>
 <li>Overall, the model correctly classified <span class="math inline">\(156\)</span> red wine samples, but incorrectly classified <span class="math inline">\(116\)</span> red wine samples.</li>
 </ul>
-</section>
+</section></section>
 <section>
 <section id="limitations" class="title-slide slide level1 center">
 <h1>Limitations</h1>
