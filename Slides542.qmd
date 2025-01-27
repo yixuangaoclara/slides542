@@ -5,6 +5,7 @@ author: "Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh"
 format: 
     revealjs:
         theme: simple
+        fit-mode: shrink 
 ---
 
 ## Analysis - Model Evaluation
@@ -13,13 +14,15 @@ format:
 - On the testing data, we attained an **accuracy of ~58%**
 - To investigate further we took a look at the confusion matries for each target level.
 
-::: {.pull-up}
-![Confusion Matrix for Red Wine Quality of 6](img/confusion_matrix_class_6.png){width=700 fig-align="center"}
-:::
+---
+
+![Confusion Matrix for Red Wine Quality of 6](img/confusion_matrix_class_6.png)
 
 ## Analysis - Model Evaluation
 
-- We can see the how many wine samples were correctly (True Positives and False Positives) and incorrectly identified (False Positives and False Negatives) for each wine level
+- We can see the how many wine samples were correctly (True Positives and False Positives) and incorrectly identified (False Positives and False Negatives) for each wine level.
+
+---
 
 | Confusion Matrix | Correct | Incorrect |
 |------------------|:--------|----------:|
@@ -29,6 +32,7 @@ format:
 | 6                | 76      |        51 |
 | 7                | 5       |         5 |
 | 8                | 0       |         0 |
+{width=50% height=50%}
 
 
 - Overall, the model correctly classified $156$ red wine samples, but incorrectly classified $116$ red wine samples.
@@ -55,7 +59,9 @@ To wrap up just some summary points:
 
 - We made a classifier that gives a rating of red wine based on chemical properties.
 - The data was obtained from the UC Irvine Machine Learning Repository.
-- This classifier uses a SVM RBF model, with tuned C, gamma and decision_function_shape parameters.
+- This classifier uses a SVM RBF model, with tuned `C`, `gamma` and `decision_function_shape` parameters.
+
+---
 - Final model gave a score of **58% accuracy**. This indicates room for improvement via different data and different modeling techniques.
 - While not the best model, it can still be used as a preliminary screening tool to assess wine batches before further testing, or by novel wine enthusiasts to assess their wine quality.
 
@@ -68,6 +74,6 @@ Thank you! This has been our presentation on our Wine Quality Predictor.
 We will now open the floor for any questions!
 
 ::: {.pull-up}
-![](img/thinking.jpg){width=700 fig-align="center"}
+![](img/thinking.jpg){width=50% height=50% fig-align="center"}
 :::
 
