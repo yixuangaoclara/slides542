@@ -4,41 +4,81 @@ title: "Predicting Red Wine Quality Using Machine Learning"
 author: "Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh"
 format: 
     revealjs:
+        theme: serif
+---
+
+---
+title: "Predicting Red Wine Quality Using Machine Learning"
+
+author: "Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh"
+format: 
+    revealjs:
         theme: simple
 ---
-## Data Validation
 
-<div style="display: flex; justify-content: space-between; align-items: center;">
+## Project Background
+
+### **Motivation**
+- The global wine industry is valued at $109.5 billion USD.
+- Differentiating wine quality often depends on subjective evaluations by sommeliers.
+
+### **Goal**
+- Bridge the gap between subjective judgment and objective, data-driven assessment.  
+- Leverage machine learning to classify red wine quality based on chemical properties.
+
+
+---
+
+## Dataset Overview
+
+### **Source**
+- Red Wine Quality Dataset from the UC Irvine Machine Learning Repository.
+
+### **Details**
+- **Observations:** 1,599 rows.
+- **Features:** 11 chemical properties, e.g., acidity, alcohol, residual sugar.  
+- **Target:** Quality score ranging from 0 (low) to 10 (high).
+
+### **Key Insight**
+- Quality scores are subjective and provided by three wine specialists, introducing potential variability in judgment.
+
+
+---
+
+## Data Retrieval
+
+### **Data Cleaning**
+- **Missing Values:** Verified none using `isnull()` and `info()` in Python.  
+- **Duplicate Rows:** Detected and removed 240 duplicates.
+
+### **Final Dataset**
+- **Rows Reduced:** From 1,599 to 1,359 after cleaning.  
+- Ensured a reliable and representative dataset for analysis.
+
+---
+
+## Data Validation
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
 <!-- Left Column (Text) -->
 <div style="flex: 1; text-align: left; font-size: 24px;">
 - Column Data Types: All columns conform to the expected data types.​<br>
-  - All columns in the wine dataset is numeric​<br>
-  - Standard Scaler is applied so that all data has a mean of 0 and standard deviation of 1​<br>
 - Value Ranges: All columns conform to the specified range.​<br>
 - Duplicate Rows: No duplicate rows were found.​<br>
 - Empty Rows: No null values or rows with all null values were found.​<br>
-<br>
-The dataset passed all validation checks successfully. Train Test Split is applied so that we have a 80% training set 20% testing set.
 </div>
-
 <!-- Right Column (Image) -->
 <div style="flex: 1; text-align: right;">
-![](img/Data_validation.png){width=550 fig-align="right"}
+![](img/Data_validation.png){width=450 fig-align="right"}
 </div>
 </div>
-
 ## Exploratory Data Analysis - Target Distribution Chart
-
 ![](img/Target_distribution.png){width=500 fig-align="center"}
-
 <div style="flex: 1;font-size: 24px;">
 <h1 style="font-weight: bold;font-size: 24px;">Notable Observations:</h1>
   - Target column follows a bell shaped distribution.<br>
-  - Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8. 
+  - Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8.
 </div>
-
 ## Exploratory Data Analysis - Feature Correlation Heatmap
-
 <div style="display: flex; justify-content: space-between; align-items: center;">
 <!-- Left Column (Text) -->
 <div style="flex: 1;font-size: 30px; text-align: left;">
@@ -46,22 +86,173 @@ This heatmap highlights in our training data which features are correlated:<br>
 <br>
  - Fixed acidity and citric acid levels are features which show a high level of correlation with one another<br>
  - Density and fixed acidity are correlated.<br>
- - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br> 
+ - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br>
 </div>
-
 <!-- Right Column (Image) -->
 <div style="flex: 1; text-align: right;">
-![](img/features_heatmap.png){width=500 fig-align="right"}
+![](img/features_heatmap.png){width=900 fig-align="right"}
 </div>
 </div>
-
 ## Exploratory Data Analysis - Feature Distribution
-
-![](img/facet_feature_distributions.png){width=600 fig-align="center"}
-
+![](img/facet_feature_distributions.png){width=1100 fig-align="center"}
 <div style="flex: 1;font-size: 24px;">
 <h1 style="font-weight: bold;font-size: 24px;">Feature Distributions:</h1>
   - Several of the features are normally distributed however not all are. <br>
   - Several features have multiple modes or show skewness on the right.<br>
 </div>
+# Analysis
+:::: {.columns}
+::: {.column width="60%"}
 
+- Preprocessing
+- Model Selection
+- Hyperparameter Tuning
+- Model Evaluation
+:::
+
+::: {.column width="40%"}
+![](img/white.png){fig-align="top" height=550 width=400}
+:::
+::::
+
+## Analysis - Preprocessing
+- **Objective:** Prepare data for effective model performance.
+- **`StandardScaler()`:** 
+  - Standardize all numeric features to have *zero mean and unit variance*. 
+  - Ensured proper interpretation of features by model.  
+
+![](img/preprocessing.png){fig-align="center"}
+
+## Analysis - Model Selection
+
+- **Evaluation Metrics:**
+  - Accuracy (5-fold cross-validation)
+- **Best Model**: 
+  - SVM (RBF kernel) -- 60.3% validation accuracy
+
+![](img/model_chart.png)
+
+## Analysis - Hyperparameter Tuning
+
+- **`RandomizedSearchCV()`**
+- **Tuned Parameters**  
+  - `C` (Regularization strength): 23.66
+  - `class_weight` (imbalanced/None): None
+  - `decision_function_shape`: ovr
+  - `gamma` (Kernel coefficient): 0.0028
+  - Validation accuracy: ***~58.0%***
+
+## Analysis - Model Evaluation
+
+::: columns
+::: {.column width="40%"}
+-   On the testing data, we attained an **accuracy of \~58%**. <br><br>
+
+-   To investigate further we took a look at the confusion matries for each target level.
+:::
+
+::: {.column width="60%"}
+![Confusion Matrix for Red Wine Quality of 6](img/confusion_matrix_class_6.png)
+:::
+:::
+
+## Analysis - Model Evaluation
+
+:::: columns
+::: {.column width="70%"}
+![Confusion Matrix for Red Wine Quality of 6 (Labelled)](img/confusion_matrix_class_6_annotated.png)
+:::
+
+::: {.column width="30%"}
+- We can see the how many wine samples were identified **correctly** and **incorrectly** for each wine level.
+:::
+::::
+
+------------------------------------------------------------------------
+
+- Overall, the model correctly classified $156$ red wine samples, but incorrectly classified $116$ red wine samples.
+
+:::: {.columns}
+::: {.column width="60%"}
+| Quality    | Correct | Incorrect |
+|------------|:--------|----------:|
+| 3          | 0       |         0 |
+| 4          | 0       |         0 |
+| 5          | 75      |        60 |
+| 6          | 76      |        51 |
+| 7          | 5       |         5 |
+| 8          | 0       |         0 |
+:::
+
+::: {.column width="40%"}
+![](img/true_positive_illustration.png){height=400}
+:::
+::::
+# Limitations
+
+:::: {.columns}
+::: {.column width="50%"}
+- Limitations on the Dataset
+- Limitations on the Model
+- Limitations on the Metric
+:::
+:::{.column width="50%"}
+![](img/limitations.png){width=500}
+:::
+::::
+
+----
+
+## Limitations on the Dataset
+
+-   There are many imbalanced classes, and we have no data for extremely good or bad wines. A dataset with adequate data for all classes may yield a better model for generalization.
+-   Another dataset with features talking about the scent and taste of the wine would allow for better predictions and feature selection.
+
+---
+
+## Limitations on the Model
+
+-   The best model achieved **around ~58%**, indicating room for improvement.
+-   The targets are **ordinal**, so a model that takes this into account can be useful.
+-   Perhaps we can consider a **Neural Net using Cross-Entropy Loss** for Multiclass Classification.
+
+---
+
+## Limitations on the Metric
+
+-   Only accuracy was used, which does not take into account the true and false positives and true and false negatives.
+-   Perhaps a metric like F1 score or F2 score would better represent the model.
+
+![](img/f1_score.png){width=350}
+
+
+---
+
+## Conclusion
+
+To wrap up just some summary points:
+
+-   We made a classifier that gives a rating of red wine based on chemical properties.
+-   The data was obtained from the UC Irvine Machine Learning Repository.
+-   This classifier uses a SVM RBF model, with tuned `C`, `gamma`, `class_weight` and `decision_function_shape` parameters.
+
+------------------------------------------------------------------------
+
+:::: {.columns}
+::: {.column width="60%"}
+-   Final model gave a score of **58% accuracy**. This indicates room for improvement via different data and different modeling techniques.
+-   While not the best model, it can still be used as a preliminary screening tool to assess wine batches before further testing, or by novel wine enthusiasts to assess their wine quality.
+:::
+::: {.column width="40%"}
+![](img/wine_thinking.png){width=500 height=450}
+:::
+::::
+## Questions?
+
+Thank you! This has been our presentation on our Wine Quality Predictor.
+
+We will now open the floor for any questions!
+
+::: pull-up
+![](img/thinking.png){fig-align="center"}
+:::
