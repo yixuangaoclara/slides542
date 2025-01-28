@@ -8,7 +8,7 @@
 <link href="Slides542_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="Slides542_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Slides542_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh">
   <title>Predicting Red Wine Quality Using Machine Learning</title>
@@ -337,131 +337,74 @@ Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh
 </div>
 
 </section>
-<section id="project-background" class="slide level2">
-<h2>Project Background</h2>
-</section>
-<section id="dataset-overview" class="slide level2">
-<h2>Dataset Overview</h2>
-</section>
-<section id="data-retrieval" class="slide level2">
-<h2>Data Retrieval</h2>
-</section>
-<section id="exploratory-data-analysis" class="slide level2">
-<h2>Exploratory Data Analysis</h2>
-</section>
-<section id="analysis---preprocessing-and-model-selection" class="slide level2">
-<h2>Analysis - Preprocessing and Model Selection</h2>
-</section>
-<section id="analysis---hyperparameter-tuning" class="slide level2">
-<h2>Analysis - Hyperparameter Tuning</h2>
-</section>
-<section id="analysis---model-evaluation" class="slide level2">
-<h2>Analysis - Model Evaluation</h2>
+<section id="data-validation" class="slide level2">
+<h2>Data Validation</h2>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<!-- Left Column (Text) -->
+<div style="flex: 1; text-align: left; font-size: 24px;">
 <ul>
-<li>On the testing data, we attained an <strong>accuracy of ~58%</strong></li>
-<li>To investigate further we took a look at the confusion matries for each target level.</li>
+<li>Column Data Types: All columns conform to the expected data types.​<br>
+<ul>
+<li>All columns in the wine dataset is numeric​<br></li>
+<li>Standard Scaler is applied so that all data has a mean of 0 and standard deviation of 1​<br></li>
+</ul></li>
+<li>Value Ranges: All columns conform to the specified range.​<br></li>
+<li>Duplicate Rows: No duplicate rows were found.​<br></li>
+<li>Empty Rows: No null values or rows with all null values were found.​<br> <br> The dataset passed all validation checks successfully. Train Test Split is applied so that we have a 80% training set 20% testing set.</li>
 </ul>
-<div class="pull-up">
-<div class="quarto-figure quarto-figure-center">
+</div>
+<!-- Right Column (Image) -->
+<div style="flex: 1; text-align: right;">
+<div class="quarto-figure quarto-figure-right">
 <figure>
-<p><img data-src="img/confusion_matrix_class_6.png" width="700"></p>
-<figcaption>Confusion Matrix for Red Wine Quality of 6</figcaption>
+<p><img data-src="img/Data_validation.png" class="quarto-figure quarto-figure-right" width="550"></p>
 </figure>
 </div>
 </div>
+</div>
 </section>
-<section id="analysis---model-evaluation-1" class="slide level2">
-<h2>Analysis - Model Evaluation</h2>
-<ul>
-<li>We can see the how many wine samples were correctly (True Positives and False Positives) and incorrectly identified (False Positives and False Negatives) for each wine level</li>
-</ul>
-<table class="caption-top">
-<thead>
-<tr class="header">
-<th>Confusion Matrix</th>
-<th style="text-align: left;">Correct</th>
-<th style="text-align: right;">Incorrect</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>3</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="even">
-<td>4</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td style="text-align: left;">75</td>
-<td style="text-align: right;">60</td>
-</tr>
-<tr class="even">
-<td>6</td>
-<td style="text-align: left;">76</td>
-<td style="text-align: right;">51</td>
-</tr>
-<tr class="odd">
-<td>7</td>
-<td style="text-align: left;">5</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td>8</td>
-<td style="text-align: left;">0</td>
-<td style="text-align: right;">0</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Overall, the model correctly classified <span class="math inline">\(156\)</span> red wine samples, but incorrectly classified <span class="math inline">\(116\)</span> red wine samples.</li>
-</ul>
-</section>
-<section>
-<section id="limitations" class="title-slide slide level1 center">
-<h1>Limitations</h1>
+<section id="exploratory-data-analysis---target-distribution-chart" class="slide level2">
+<h2>Exploratory Data Analysis - Target Distribution Chart</h2>
 
-</section>
-<section id="limitations-on-the-dataset" class="slide level2">
-<h2>Limitations on the Dataset</h2>
+<img data-src="img/Target_distribution.png" class="quarto-figure quarto-figure-center r-stretch" width="500"><div style="flex: 1;font-size: 24px;">
+<h1 style="font-weight: bold;font-size: 24px;">
+Notable Observations:
+</h1>
 <ul>
-<li>There are not many imbalanced classes, and we have no data for extremely good or bad wines. A dataset with adequate data for all classes may yield a better model for generalization.</li>
-<li>Another dataset with features talking about the scent and taste of the wine would allow</li>
+<li>Target column follows a bell shaped distribution.<br></li>
+<li>Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8.</li>
 </ul>
+</div>
 </section>
-<section id="limitations-on-the-model" class="slide level2">
-<h2>Limitations on the Model</h2>
-<ul>
-<li>The best model achieved <strong>around ~58%</strong>, indicating room for improvement.</li>
-<li>The targts are ordinal, so a model that takes this into account can be useful.</li>
-<li>Perhaps we can consider a Neural Net using Cross-Entropy Loss for Multiclass Classification.</li>
-</ul>
+<section id="exploratory-data-analysis---feature-correlation-heatmap" class="slide level2">
+<h2>Exploratory Data Analysis - Feature Correlation Heatmap</h2>
+<div style="display: flex; justify-content: space-between; align-items: center;">
+<!-- Left Column (Text) -->
+<div style="flex: 1;font-size: 30px; text-align: left;">
+<p>This heatmap highlights in our training data which features are correlated:<br> <br> - Fixed acidity and citric acid levels are features which show a high level of correlation with one another<br> - Density and fixed acidity are correlated.<br> - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br></p>
+</div>
+<!-- Right Column (Image) -->
+<div style="flex: 1; text-align: right;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="img/features_heatmap.png" class="quarto-figure quarto-figure-right" width="500"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
-<section id="limitations-on-the-metric" class="slide level2">
-<h2>Limitations on the Metric</h2>
+<section id="exploratory-data-analysis---feature-distribution" class="slide level2">
+<h2>Exploratory Data Analysis - Feature Distribution</h2>
+
+<img data-src="img/facet_feature_distributions.png" class="quarto-figure quarto-figure-center r-stretch" width="600"><div style="flex: 1;font-size: 24px;">
+<h1 style="font-weight: bold;font-size: 24px;">
+Feature Distributions:
+</h1>
 <ul>
-<li>Only accuracy was used, which does not take into account the True and false positives and true and false negatives.</li>
-<li>Perhaps a metric like F1 / F2 score would better represent the model.</li>
+<li>Several of the features are normally distributed however not all are. <br></li>
+<li>Several features have multiple modes or show skewness on the right.<br></li>
 </ul>
-</section>
-<section id="conclusion" class="slide level2">
-<h2>Conclusion</h2>
-<p>To wrap up just some summary points:</p>
-<ul>
-<li>We made a classifier that gives a rating of red wine based on chemical properties.</li>
-<li>The data was obtained from the UC Irvine Machine Learning Repository.</li>
-<li>This classifier uses a SVM RBF model, with tuned C, gamma and decision_function_shape parameters.</li>
-<li>Final model gave a score of <strong>58% accuracy</strong>. This indicates room for improvement via different data and different modeling techniques.</li>
-<li>While not the best model, it can still be used as a preliminary screening tool to assess wine batches before further testing, or by novel wine enthusiasts to assess their wine quality.</li>
-</ul>
-</section></section>
-<section id="questions" class="title-slide slide level1 center">
-<h1>Questions?</h1>
-<p>Thank you! This has been our presentation on our Wine Quality Predictor.</p>
-<p>We will now open the floor for any questions!</p>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
