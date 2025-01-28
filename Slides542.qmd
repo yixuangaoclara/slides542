@@ -66,11 +66,10 @@ format:
 
 ## Exploratory Data Analysis - Target Distribution Chart
 ![](img/Target_distribution.png){width=700 fig-align="center"}
-<div style="flex: 1;font-size: 25px;">
-<h1 style="font-weight: bold;font-size: 26px;">Notable Observations:</h1>
+
+Notable Observations:<br>
   - Target column follows a bell shaped distribution.<br>
   - Range of the ratings in our data is between 3-8.
-</div>
 
 ## Exploratory Data Analysis - Feature Correlation Heatmap
 :::: {.columns}
