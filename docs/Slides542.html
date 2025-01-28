@@ -8,7 +8,7 @@
 <link href="Slides542_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="Slides542_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="Slides542_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.5.56">
+  <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh">
   <title>Predicting Red Wine Quality Using Machine Learning</title>
@@ -391,7 +391,7 @@ Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh
 <h2>Data Validation</h2>
 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
 <!-- Left Column (Text) -->
-<div style="flex: 1; text-align: left; font-size: 24px;">
+<div style="flex: 1; text-align: left; font-size: 32px;">
 <ul>
 <li>Column Data Types: All columns conform to the expected data types.​<br></li>
 <li>Value Ranges: All columns conform to the specified range.​<br></li>
@@ -411,47 +411,34 @@ Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh
 </section>
 <section id="exploratory-data-analysis---target-distribution-chart" class="slide level2">
 <h2>Exploratory Data Analysis - Target Distribution Chart</h2>
-<img data-src="img/Target_distribution.png" class="quarto-figure quarto-figure-center" width="500">
-<div style="flex: 1;font-size: 24px;">
-<h1 style="font-weight: bold;font-size: 24px;">
+<img data-src="img/Target_distribution.png" class="quarto-figure quarto-figure-center" width="700">
+<div style="flex: 1;font-size: 25px;">
+<h1 style="font-weight: bold;font-size: 26px;">
 Notable Observations:
 </h1>
 <ul>
 <li>Target column follows a bell shaped distribution.<br></li>
-<li>Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8.</li>
+<li>Range of the ratings in our data is between 3-8.</li>
 </ul>
 </div>
 </section>
 <section id="exploratory-data-analysis---feature-correlation-heatmap" class="slide level2">
 <h2>Exploratory Data Analysis - Feature Correlation Heatmap</h2>
-<div style="display: flex; justify-content: space-between; align-items: center;">
-<!-- Left Column (Text) -->
-<div style="flex: 1;font-size: 30px; text-align: left;">
-<p>This heatmap highlights in our training data which features are correlated:<br> <br> - Fixed acidity and citric acid levels are features which show a high level of correlation with one another<br> - Density and fixed acidity are correlated.<br> - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br></p>
-</div>
-<!-- Right Column (Image) -->
-<div style="flex: 1; text-align: right;">
+<div class="columns">
+<div class="column" style="width:40%;">
+<p>Positive Correlation:<br> - Fixed acidity and citric acid levels<br> - Density and fixed acidity<br> <br> Negative Correlation:<br> - pH and citric acid</p>
+</div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-right">
 <figure>
-<p><img data-src="img/features_heatmap.png" class="quarto-figure quarto-figure-right" width="900"></p>
+<p><img data-src="img/features_heatmap.png" class="quarto-figure quarto-figure-right" width="1100"></p>
 </figure>
 </div>
-</div>
-</div>
+</div></div>
 </section>
 <section id="exploratory-data-analysis---feature-distribution" class="slide level2">
 <h2>Exploratory Data Analysis - Feature Distribution</h2>
-<img data-src="img/facet_feature_distributions.png" class="quarto-figure quarto-figure-center" width="1100">
-<div style="flex: 1;font-size: 24px;">
-<h1 style="font-weight: bold;font-size: 24px;">
-Feature Distributions:
-</h1>
-<ul>
-<li>Several of the features are normally distributed however not all are. <br></li>
-<li>Several features have multiple modes or show skewness on the right.<br></li>
-</ul>
-</div>
-</section>
+
+<img data-src="img/facet_feature_distributions1.png" class="quarto-figure quarto-figure-center r-stretch" width="1100"></section>
 <section id="analysis" class="slide level2">
 <h2>Analysis</h2>
 <div class="columns">
@@ -619,7 +606,7 @@ Feature Distributions:
 <section id="limitations-on-the-model" class="slide level2">
 <h2>Limitations on the Model</h2>
 <ul>
-<li>The best model achieved <strong>around ~58%</strong>, indicating room for improvement.</li>
+<li>The best model achieved <strong>around 58%</strong>, indicating room for improvement.</li>
 <li>The targets are <strong>ordinal</strong>, so a model that takes this into account can be useful.</li>
 <li>Perhaps we can consider a <strong>Neural Net using Cross-Entropy Loss</strong> for Multiclass Classification.</li>
 </ul>

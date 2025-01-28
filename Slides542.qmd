@@ -52,7 +52,7 @@ format:
 ## Data Validation
 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
 <!-- Left Column (Text) -->
-<div style="flex: 1; text-align: left; font-size: 24px;">
+<div style="flex: 1; text-align: left; font-size: 32px;">
 - Column Data Types: All columns conform to the expected data types.​<br>
 - Value Ranges: All columns conform to the specified range.​<br>
 - Duplicate Rows: No duplicate rows were found.​<br>
@@ -63,35 +63,33 @@ format:
 ![](img/Data_validation.png){width=450 fig-align="right"}
 </div>
 </div>
+
 ## Exploratory Data Analysis - Target Distribution Chart
-![](img/Target_distribution.png){width=500 fig-align="center"}
-<div style="flex: 1;font-size: 24px;">
-<h1 style="font-weight: bold;font-size: 24px;">Notable Observations:</h1>
+![](img/Target_distribution.png){width=700 fig-align="center"}
+<div style="flex: 1;font-size: 25px;">
+<h1 style="font-weight: bold;font-size: 26px;">Notable Observations:</h1>
   - Target column follows a bell shaped distribution.<br>
-  - Data points although are scored from 1-10, the true range of the ratings in our data is between 3-8.
+  - Range of the ratings in our data is between 3-8.
 </div>
+
 ## Exploratory Data Analysis - Feature Correlation Heatmap
-<div style="display: flex; justify-content: space-between; align-items: center;">
-<!-- Left Column (Text) -->
-<div style="flex: 1;font-size: 30px; text-align: left;">
-This heatmap highlights in our training data which features are correlated:<br>
+:::: {.columns}
+::: {.column width="40%"}
+Positive Correlation:<br>
+   - Fixed acidity and citric acid levels<br>
+   - Density and fixed acidity<br>
 <br>
- - Fixed acidity and citric acid levels are features which show a high level of correlation with one another<br>
- - Density and fixed acidity are correlated.<br>
- - There are also several features with a very strong negative correlation, such as pH and citric acid and pH and fixed acidity.<br>
-</div>
-<!-- Right Column (Image) -->
-<div style="flex: 1; text-align: right;">
-![](img/features_heatmap.png){width=900 fig-align="right"}
-</div>
-</div>
+Negative Correlation:<br>
+   - pH and citric acid
+  
+:::
+::: {.column width="60%"}
+![](img/features_heatmap.png){width=1100 fig-align="right"}
+:::
+::::
+
 ## Exploratory Data Analysis - Feature Distribution
-![](img/facet_feature_distributions.png){width=1100 fig-align="center"}
-<div style="flex: 1;font-size: 24px;">
-<h1 style="font-weight: bold;font-size: 24px;">Feature Distributions:</h1>
-  - Several of the features are normally distributed however not all are. <br>
-  - Several features have multiple modes or show skewness on the right.<br>
-</div>
+![](img/facet_feature_distributions1.png){width=1100 fig-align="center"}
 
 ## Analysis
 :::: {.columns}
