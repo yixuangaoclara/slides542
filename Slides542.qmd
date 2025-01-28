@@ -205,7 +205,7 @@ This heatmap highlights in our training data which features are correlated:<br>
 
 ## Limitations on the Model
 
--   The best model achieved **around ~58%**, indicating room for improvement.
+-   The best model achieved **around 58%**, indicating room for improvement.
 -   The targets are **ordinal**, so a model that takes this into account can be useful.
 -   Perhaps we can consider a **Neural Net using Cross-Entropy Loss** for Multiclass Classification.
 
