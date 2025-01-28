@@ -7,15 +7,6 @@ format:
         theme: serif
 ---
 
----
-title: "Predicting Red Wine Quality Using Machine Learning"
-
-author: "Yixuan Gao, Bryan Lee, Wangkai Zhu, Timothy Singh"
-format: 
-    revealjs:
-        theme: simple
----
-
 ## Project Background
 
 ### **Motivation**
@@ -25,7 +16,6 @@ format:
 ### **Goal**
 - Bridge the gap between subjective judgment and objective, data-driven assessment.  
 - Leverage machine learning to classify red wine quality based on chemical properties.
-
 
 ---
 
@@ -38,6 +28,8 @@ format:
 - **Observations:** 1,599 rows.
 - **Features:** 11 chemical properties, e.g., acidity, alcohol, residual sugar.  
 - **Target:** Quality score ranging from 0 (low) to 10 (high).
+
+---
 
 ### **Key Insight**
 - Quality scores are subjective and provided by three wine specialists, introducing potential variability in judgment.
@@ -100,7 +92,8 @@ This heatmap highlights in our training data which features are correlated:<br>
   - Several of the features are normally distributed however not all are. <br>
   - Several features have multiple modes or show skewness on the right.<br>
 </div>
-# Analysis
+
+## Analysis
 :::: {.columns}
 ::: {.column width="60%"}
 
@@ -168,7 +161,7 @@ This heatmap highlights in our training data which features are correlated:<br>
 :::
 ::::
 
-------------------------------------------------------------------------
+----
 
 - Overall, the model correctly classified $156$ red wine samples, but incorrectly classified $116$ red wine samples.
 
@@ -236,7 +229,7 @@ To wrap up just some summary points:
 -   The data was obtained from the UC Irvine Machine Learning Repository.
 -   This classifier uses a SVM RBF model, with tuned `C`, `gamma`, `class_weight` and `decision_function_shape` parameters.
 
-------------------------------------------------------------------------
+-----
 
 :::: {.columns}
 ::: {.column width="60%"}
