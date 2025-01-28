@@ -34,6 +34,7 @@ format:
 ### **Key Insight**
 - Quality scores are subjective and provided by three wine specialists, introducing potential variability in judgment.
 
+![](img/gyx_intro.png){fig-align="center" height=450 width=650}
 
 ---
 
@@ -101,7 +102,7 @@ Negative Correlation:<br>
 :::
 
 ::: {.column width="40%"}
-![](img/white.png){fig-align="top" height=550 width=400}
+![](img/white.png){fig-align="top" height=580 width=400}
 :::
 ::::
 
@@ -127,10 +128,10 @@ Negative Correlation:<br>
 - **`RandomizedSearchCV()`**
 - **Tuned Parameters**  
   - `C` (Regularization strength): 23.66
-  - `class_weight` (imbalanced/None): None
+  - `class_weight` (balanced/None): None
   - `decision_function_shape`: ovr
   - `gamma` (Kernel coefficient): 0.0028
-  - Validation accuracy: ***~58.0%***
+  - Test accuracy: ***~58.0%***
 
 ## Analysis - Model Evaluation
 
